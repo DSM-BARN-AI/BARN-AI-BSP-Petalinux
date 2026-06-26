@@ -1,0 +1,40 @@
+# Local installers/tools
+*.run
+Downloads/
+xilinx/
+
+# Vivado generated files
+*.jou
+*.log
+*.str
+*.xpr
+*.xsa
+*.bit
+*.bin
+*.ltx
+.cache/
+.hw/
+.ip_user_files/
+.runs/
+.sim/
+.srcs/
+
+# PetaLinux generated files
+build/
+images/
+components/
+.pre-built/
+.petalinux/
+project-spec/hw-description/
+
+# Yocto/PetaLinux outputs
+*.ub
+*.wic
+*.wic.gz
+*.tar.gz
+*.cpio
+*.cpio.gz
+rootfs/
+tmp/
+sstate-cache/
+downloads/
