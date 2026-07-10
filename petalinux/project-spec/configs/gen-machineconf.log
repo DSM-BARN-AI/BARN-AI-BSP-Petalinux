@@ -1,14 +1,14 @@
-2026-06-28 06:24:49,542 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
-2026-06-28 06:24:49,542 - [INFO] Getting Platform info from HW file
-2026-06-28 06:24:49,542 - [DEBUG] Using the soc_family specified by user:zynq
-2026-06-28 06:24:49,562 - [DEBUG] Hardware Configuration:
-2026-06-28 06:24:49,562 - [DEBUG] MACHINE     = "None"
-2026-06-28 06:24:49,562 - [DEBUG] DEVICE_ID   = "7z020"
-2026-06-28 06:24:49,562 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-06-28 06:24:49,562 - [DEBUG] SOC_VARIANT = ""
-2026-06-28 06:24:49,562 - [INFO] Silentconfig project
-2026-06-28 06:24:49,562 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
-2026-06-28 06:24:49,570 - [DEBUG] *
+2026-07-08 04:57:52,515 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
+2026-07-08 04:57:52,515 - [INFO] Getting Platform info from HW file
+2026-07-08 04:57:52,515 - [DEBUG] Using the soc_family specified by user:zynq
+2026-07-08 04:57:52,534 - [DEBUG] Hardware Configuration:
+2026-07-08 04:57:52,534 - [DEBUG] MACHINE     = "None"
+2026-07-08 04:57:52,534 - [DEBUG] DEVICE_ID   = "7z020"
+2026-07-08 04:57:52,534 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-07-08 04:57:52,534 - [DEBUG] SOC_VARIANT = ""
+2026-07-08 04:57:52,534 - [INFO] Silentconfig project
+2026-07-08 04:57:52,534 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
+2026-07-08 04:57:52,542 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -117,7 +117,7 @@ Extra dts/dtsi files (SUBSYSTEM_EXTRA_DT_FILES) []
 *
 generate boot args automatically (SUBSYSTEM_BOOTARGS_AUTO) [Y/n/?] 
 enable kernel earlyprintk (SUBSYSTEM_BOOTARGS_EARLYPRINTK) [Y/n/?] 
-Auto generated bootargs (NO EDIT!) (SUBSYSTEM_BOOTARGS_GENERATED) [console=ttyPS0,115200 earlycon root=/dev/ram0 rw] 
+Auto generated bootargs (NO EDIT!) (SUBSYSTEM_BOOTARGS_GENERATED) [console=ttyPS0,115200 earlycon root=/dev/mmcblk0p2 ro rootwait] 
 Add extra boot args (SUBSYSTEM_EXTRA_BOOTARGS) [] 
 Devicetree compiler flags (SUBSYSTEM_DEVICETREE_COMPILER_FLAGS) [-@] 
 Devicetree overlay (SUBSYSTEM_DTB_OVERLAY) [N/y/?] 
@@ -185,13 +185,12 @@ linux config target (SUBSYSTEM_LINUX_CONFIG_TARGET) []
 *
 Root filesystem type
   1. INITRAMFS (SUBSYSTEM_ROOTFS_INITRAMFS)
-> 2. INITRD (SUBSYSTEM_ROOTFS_INITRD)
+  2. INITRD (SUBSYSTEM_ROOTFS_INITRD)
   3. UBI/UBIFS (SUBSYSTEM_ROOTFS_UBIFS)
   4. NFS (SUBSYSTEM_ROOTFS_NFS)
-  5. EXT4 (SD/eMMC/SATA/USB) (SUBSYSTEM_ROOTFS_EXT4)
+> 5. EXT4 (SD/eMMC/SATA/USB) (SUBSYSTEM_ROOTFS_EXT4)
   6. other (SUBSYSTEM_ROOTFS_OTHER)
-choice[1-6]: RAMDISK loadaddr (SUBSYSTEM_INITRD_RAMDISK_LOADADDR) [0x0] 
-INITRAMFS/INITRD Image name (SUBSYSTEM_INITRAMFS_IMAGE_NAME) [petalinux-image-minimal] 
+choice[1-6]: Device node of SD device (SUBSYSTEM_SDROOT_DEV) [/dev/mmcblk0p2] 
 name for bootable kernel image (SUBSYSTEM_UIMAGE_NAME) [image.ub] 
 Root filesystem formats (SUBSYSTEM_RFS_FORMATS) [cpio cpio.gz cpio.gz.u-boot ext4 tar.gz] 
 Copy final images to tftpboot (SUBSYSTEM_COPY_TO_TFTPBOOT) [Y/n/?] 
@@ -245,9 +244,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config
 #
-2026-06-28 06:24:49,609 - [INFO] Silentconfig rootfs
-2026-06-28 06:24:49,609 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
-2026-06-28 06:24:49,625 - [DEBUG] *
+2026-07-08 04:57:52,580 - [INFO] Silentconfig rootfs
+2026-07-08 04:57:52,580 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
+2026-07-08 04:57:52,593 - [DEBUG] *
 * Configuration
 *
 *
@@ -3527,7 +3526,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config
 #
-2026-06-28 06:24:49,631 - [INFO] Generating configuration files
-2026-06-28 06:24:49,632 - [DEBUG] No multilibs enabled.
-2026-06-28 06:24:49,632 - [DEBUG] No multilibs enabled.
-2026-06-28 06:24:49,644 - [DEBUG] Shutting down bitbake
+2026-07-08 04:57:52,599 - [INFO] Generating configuration files
+2026-07-08 04:57:52,599 - [DEBUG] No multilibs enabled.
+2026-07-08 04:57:52,599 - [DEBUG] No multilibs enabled.
+2026-07-08 04:57:52,611 - [DEBUG] Shutting down bitbake
