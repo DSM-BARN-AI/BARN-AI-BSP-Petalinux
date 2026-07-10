@@ -1,15 +1,10 @@
-2026-07-08 04:56:31,887 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
-2026-07-08 04:56:31,887 - [INFO] Getting Platform info from HW file
-2026-07-08 04:56:31,887 - [DEBUG] Using the soc_family specified by user:zynq
-2026-07-08 04:56:31,905 - [DEBUG] Hardware Configuration:
-2026-07-08 04:56:31,905 - [DEBUG] MACHINE     = "None"
-2026-07-08 04:56:31,905 - [DEBUG] DEVICE_ID   = "7z020"
-2026-07-08 04:56:31,905 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-07-08 04:56:31,905 - [DEBUG] SOC_VARIANT = ""
-2026-07-08 04:56:31,905 - [INFO] Menuconfig project
-2026-07-08 04:56:31,905 - [DEBUG] Running CMD: env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config mconf -s /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
-2026-07-08 04:57:35,850 - [DEBUG] xsct -sdx -nodisp /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/petalinux_hsm.tcl get_flash_width_parts /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/data/ipinfo.yaml /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/hw-description/system.xsa /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/flash_parts.txt
-2026-07-08 04:57:42,603 - [DEBUG] 
+2026-07-10 13:45:31,561 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
+2026-07-10 13:45:31,561 - [INFO] Getting Platform info from HW file
+2026-07-10 13:45:31,561 - [DEBUG] Using the soc_family specified by user:zynq
+2026-07-10 13:45:31,562 - [INFO] Generating Kconfig for project
+2026-07-10 13:45:31,562 - [DEBUG] Generating System HW file
+2026-07-10 13:45:31,563 - [DEBUG] xsct -sdx -nodisp /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/hw-description.tcl plnx_gen_hwsysconf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/hw-description/system.xsa
+2026-07-10 13:45:38,997 - [DEBUG] 
 
 ****** Software Commandline Tool (XSCT) v2025.2.0
   **** SW Build 6298600 on Thu Nov 13 00:55:04 MST 2025
@@ -28,9 +23,36 @@ INFO: [Hsi 55-2053] elapsed time for repository (/home/dsm/xilinx/petalinux/2025
 WARNING: Failed in finding /home/dsm/xilinx/petalinux/2025.2/components/xsct/data/system-device-tree-xlnx/device_tree/data/device_tree.tcl path.
 
 
-2026-07-08 04:57:42,610 - [INFO] Silentconfig rootfs
-2026-07-08 04:57:42,610 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
-2026-07-08 04:57:42,633 - [DEBUG] *
+2026-07-10 13:45:39,067 - [DEBUG] Hardware Configuration:
+2026-07-10 13:45:39,067 - [DEBUG] MACHINE     = "None"
+2026-07-10 13:45:39,067 - [DEBUG] DEVICE_ID   = "7z020"
+2026-07-10 13:45:39,067 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-07-10 13:45:39,067 - [DEBUG] SOC_VARIANT = ""
+2026-07-10 13:45:39,068 - [INFO] Menuconfig project
+2026-07-10 13:45:39,068 - [DEBUG] Running CMD: env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config mconf -s /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
+2026-07-10 13:45:48,622 - [DEBUG] xsct -sdx -nodisp /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/petalinux_hsm.tcl get_flash_width_parts /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/data/ipinfo.yaml /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/hw-description/system.xsa /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/flash_parts.txt
+2026-07-10 13:45:54,741 - [DEBUG] 
+
+****** Software Commandline Tool (XSCT) v2025.2.0
+  **** SW Build 6298600 on Thu Nov 13 00:55:04 MST 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+Warning: XSCT is deprecated and will be removed in future releases.
+We recommend using the new Python command-line tool for project management and debugging:
+- Run "vitis -i" for interactive mode.
+- Run "vitis -s <script>" for script mode.
+WARNING: sdtgen package cannot be loaded. System Device tree commands will not 
+ be available
+INFO: [Hsi 55-2053] elapsed time for repository (/home/dsm/xilinx/petalinux/2025.2/components/xsct/data/embeddedsw) loading 0 seconds
+
+WARNING: Failed in finding /home/dsm/xilinx/petalinux/2025.2/components/xsct/data/system-device-tree-xlnx/device_tree/data/device_tree.tcl path.
+
+
+2026-07-10 13:45:54,747 - [INFO] Silentconfig rootfs
+2026-07-10 13:45:54,747 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
+2026-07-10 13:45:54,774 - [DEBUG] *
 * Configuration
 *
 *
@@ -3310,14 +3332,14 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config
 #
-2026-07-08 04:57:42,644 - [INFO] Generating configuration files
-2026-07-08 04:57:42,645 - [DEBUG] No multilibs enabled.
-2026-07-08 04:57:42,645 - [DEBUG] No multilibs enabled.
-2026-07-08 04:57:42,652 - [INFO] Generating machine conf file
-2026-07-08 04:57:42,663 - [INFO] Generating plnxtool conf file
-2026-07-08 04:57:42,680 - [DEBUG] python3 /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/rootfsconfigs/rootfs_config.py --update_cfg /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/build/conf/plnxtool.conf zynq
-2026-07-08 04:57:42,801 - [DEBUG] 
+2026-07-10 13:45:54,785 - [INFO] Generating configuration files
+2026-07-10 13:45:54,786 - [DEBUG] No multilibs enabled.
+2026-07-10 13:45:54,786 - [DEBUG] No multilibs enabled.
+2026-07-10 13:45:54,794 - [INFO] Generating machine conf file
+2026-07-10 13:45:54,805 - [INFO] Generating plnxtool conf file
+2026-07-10 13:45:54,825 - [DEBUG] python3 /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/components/yocto/layers/meta-xilinx/meta-xilinx-core/gen-machine-conf/gen-machine-scripts/rootfsconfigs/rootfs_config.py --update_cfg /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/build/conf/plnxtool.conf zynq
+2026-07-10 13:45:54,894 - [DEBUG] 
 
 
 
-2026-07-08 04:57:42,804 - [DEBUG] Shutting down bitbake
+2026-07-10 13:45:54,896 - [DEBUG] Shutting down bitbake

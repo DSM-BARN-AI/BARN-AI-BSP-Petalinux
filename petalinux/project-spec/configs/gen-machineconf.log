@@ -1,14 +1,14 @@
-2026-07-08 04:57:52,515 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
-2026-07-08 04:57:52,515 - [INFO] Getting Platform info from HW file
-2026-07-08 04:57:52,515 - [DEBUG] Using the soc_family specified by user:zynq
-2026-07-08 04:57:52,534 - [DEBUG] Hardware Configuration:
-2026-07-08 04:57:52,534 - [DEBUG] MACHINE     = "None"
-2026-07-08 04:57:52,534 - [DEBUG] DEVICE_ID   = "7z020"
-2026-07-08 04:57:52,534 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-07-08 04:57:52,534 - [DEBUG] SOC_VARIANT = ""
-2026-07-08 04:57:52,534 - [INFO] Silentconfig project
-2026-07-08 04:57:52,534 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
-2026-07-08 04:57:52,542 - [DEBUG] *
+2026-07-10 13:45:59,815 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
+2026-07-10 13:45:59,815 - [INFO] Getting Platform info from HW file
+2026-07-10 13:45:59,815 - [DEBUG] Using the soc_family specified by user:zynq
+2026-07-10 13:45:59,835 - [DEBUG] Hardware Configuration:
+2026-07-10 13:45:59,835 - [DEBUG] MACHINE     = "None"
+2026-07-10 13:45:59,835 - [DEBUG] DEVICE_ID   = "7z020"
+2026-07-10 13:45:59,835 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-07-10 13:45:59,835 - [DEBUG] SOC_VARIANT = ""
+2026-07-10 13:45:59,835 - [INFO] Silentconfig project
+2026-07-10 13:45:59,835 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
+2026-07-10 13:45:59,843 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -45,7 +45,7 @@ Primary Memory
 > 1. ps7_ddr_0 (SUBSYSTEM_MEMORY_PS7_DDR_0_SELECT)
   2. manual (SUBSYSTEM_MEMORY_MANUAL_SELECT)
 choice[1-2?]: System memory base address (SUBSYSTEM_MEMORY_PS7_DDR_0_BASEADDR) [0x0] 
-System memory size (SUBSYSTEM_MEMORY_PS7_DDR_0_SIZE) [0x40000000] 
+System memory size (SUBSYSTEM_MEMORY_PS7_DDR_0_SIZE) [0x20000000] 
 u-boot text base address (SUBSYSTEM_MEMORY_PS7_DDR_0_U__BOOT_TEXTBASE_OFFSET) [0x4000000] 
 *
 * Serial Settings
@@ -244,9 +244,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config
 #
-2026-07-08 04:57:52,580 - [INFO] Silentconfig rootfs
-2026-07-08 04:57:52,580 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
-2026-07-08 04:57:52,593 - [DEBUG] *
+2026-07-10 13:45:59,884 - [INFO] Silentconfig rootfs
+2026-07-10 13:45:59,884 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
+2026-07-10 13:45:59,901 - [DEBUG] *
 * Configuration
 *
 *
@@ -3526,7 +3526,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config
 #
-2026-07-08 04:57:52,599 - [INFO] Generating configuration files
-2026-07-08 04:57:52,599 - [DEBUG] No multilibs enabled.
-2026-07-08 04:57:52,599 - [DEBUG] No multilibs enabled.
-2026-07-08 04:57:52,611 - [DEBUG] Shutting down bitbake
+2026-07-10 13:45:59,908 - [INFO] Generating configuration files
+2026-07-10 13:45:59,909 - [DEBUG] No multilibs enabled.
+2026-07-10 13:45:59,909 - [DEBUG] No multilibs enabled.
+2026-07-10 13:45:59,922 - [DEBUG] Shutting down bitbake

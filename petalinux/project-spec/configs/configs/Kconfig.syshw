@@ -46,7 +46,7 @@ endchoice
 config SUBSYSTEM_MEMORY_PS7_DDR_0_BASEADDR
 	hex "System memory base address"
 	default 0x0
-	range 0x0 0x3dffffff
+	range 0x0 0x1dffffff
 	depends on SUBSYSTEM_MEMORY_PS7_DDR_0_SELECT
 	help
 	Start address of the system memory.
@@ -55,8 +55,8 @@ config SUBSYSTEM_MEMORY_PS7_DDR_0_BASEADDR
 
 config SUBSYSTEM_MEMORY_PS7_DDR_0_SIZE
 	hex "System memory size"
-	default 0x40000000
-	range 0x2000000 0x40000000
+	default 0x20000000
+	range 0x2000000 0x20000000
 	depends on SUBSYSTEM_MEMORY_PS7_DDR_0_SELECT
 	help
 	Size of the system memory. Minimum is 32MB, maximum is the size of
@@ -68,7 +68,7 @@ config SUBSYSTEM_MEMORY_PS7_DDR_0_U__BOOT_TEXTBASE_OFFSET
 	default 0x8000000 if SUBSYSTEM_ARCH_AARCH64
 	default 0x4000000 if SUBSYSTEM_ARCH_ARM
 	default 0x100000 if SUBSYSTEM_ARCH_MICROBLAZE
-	range 0x100000 0x3e0fffff
+	range 0x100000 0x1e0fffff
 	depends on SUBSYSTEM_MEMORY_PS7_DDR_0_SELECT
 	depends on !SUBSYSTEM_COMPONENT_U__BOOT_NAME_NONE
 	help
