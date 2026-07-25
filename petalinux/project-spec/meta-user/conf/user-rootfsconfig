@@ -4,3 +4,4 @@
 CONFIG_gpio-demo
 CONFIG_peekpoke
 CONFIG_axi-gpio-drv
+CONFIG_vdma-capture

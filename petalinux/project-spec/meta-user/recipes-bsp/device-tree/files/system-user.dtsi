@@ -1,3 +1,11 @@
 /include/ "system-conf.dtsi"
 / {
 };
+
+&amba_pl {
+	vdma_capture: vdma_capture@0 {
+		compatible = "barn,vdma-capture";
+		dmas = <&axi_vdma_0 1>;
+		dma-names = "s2mm";
+	};
+};

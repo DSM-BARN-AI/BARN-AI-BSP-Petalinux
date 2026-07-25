@@ -3751,6 +3751,7 @@ CONFIG_Init-manager-sysvinit=y
 CONFIG_axi-gpio-drv=y
 # CONFIG_gpio-demo is not set
 # CONFIG_peekpoke is not set
+CONFIG_vdma-capture=y
 
 #
 # PetaLinux RootFS Settings
