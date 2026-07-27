@@ -43,15 +43,13 @@ MODULE_DESCRIPTION
 #define REGF_TPG_CFG 0x0C
 #define REGF_STATUS  0x10
 
-#define CRTL_ENABLE_BIT 0
-
 struct axil_regfile_local {
         unsigned long mem_start;
         unsigned long mem_end;
         void __iomem *base_addr;
 };
 
-static ssize_t ctrl_store(struct device *dev, struct device_attribute *attr, char *buf, size_t count) {
+static ssize_t ctrl_store(struct device *dev, struct device_attribute *attr, const char *buf, size_t count) {
 	uint32_t enable, mux;
 	struct axil_regfile_local *lp = dev_get_drvdata(dev);
 
@@ -60,9 +58,16 @@ static ssize_t ctrl_store(struct device *dev, struct device_attribute *attr, cha
 	}
 
 	uint32_t ctrl = (enable & 0x1) | ((mux & 0x1) << 1);
-	iowrite32(ctrl, lp->base_addr + REFG_CTRL);
+	iowrite32(ctrl, lp->base_addr + REGF_CTRL);
 
 	return count; 
+}
+
+static ssize_t ctrl_show(struct device *dev, struct device_attribute *attr, char *buf) {
+       	struct axil_regfile_local *lp = dev_get_drvdata(dev);
+	uint32_t ctrl = ioread32(lp->base_addr + REGF_CTRL);
+
+	return sprintf(buf, "enable : %u, mux : %u\n", ctrl & 1, (ctrl >>  1) & 1);	
 }
 static DEVICE_ATTR_RW(ctrl);
 
@@ -111,6 +116,15 @@ static int axil_regfile_probe(struct platform_device *pdev)
 		rc = -EIO;
 		goto error2;
 	}
+	rc = device_create_file(dev, &dev_attr_id);
+	if (rc) {
+		dev_err(dev, "failed to create sysfs 'id'\n");
+	}
+	rc = device_create_file(dev, &dev_attr_ctrl);
+	if (rc) {
+		dev_err(dev, "failed to create sysfs 'ctrl'\n");
+	}
+	
 
 	return 0;
 error2:
