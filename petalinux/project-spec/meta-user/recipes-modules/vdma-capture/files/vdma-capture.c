@@ -69,8 +69,11 @@ static ssize_t capture_store(struct device *dev,
                 return -EIO;
 
         dma_async_issue_pending(lp->chan);
-        wait_for_completion_timeout(&lp->done, msecs_to_jiffies(1000));
-
+        if(!wait_for_completion_timeout(&lp->done, msecs_to_jiffies(1000))) {
+		dev_err(dev, "capture TIMEOUT (no completion irq), buf=%p phys=%pad\n",
+                        lp->buf, &lp->buf_phys);
+		return -ETIMEDOUT;
+	}
         dev_info(dev, "capture done, buf=%p phys=%pad\n", lp->buf, &lp->buf_phys);
         return count;
 }
