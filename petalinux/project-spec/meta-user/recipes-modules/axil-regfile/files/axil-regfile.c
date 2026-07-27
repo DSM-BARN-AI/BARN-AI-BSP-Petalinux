@@ -29,7 +29,6 @@
 #include <linux/of_platform.h>
 #include <linux/platform_device.h>
 
-/* Standard module information, edit as appropriate */
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR
     ("Xilinx Inc.");
@@ -38,20 +37,24 @@ MODULE_DESCRIPTION
 
 #define DRIVER_NAME "axil-regfile"
 
-/* Simple example of how to receive command line parameters to your module.
-   Delete if you don't need them */
-unsigned myint = 0xdeadbeef;
-char *mystr = "default";
+#define REGF_ID      0x00
+#define REGF_CTRL    0x08
+#define REGF_TPG_CFG 0x0C
+#define REGF_STATUS  0x10
 
-module_param(myint, int, S_IRUGO);
-module_param(mystr, charp, S_IRUGO);
-
-struct axil_regfile_local {
+#define CRTL_EABLE_BIT 0
 	int irq;
 	unsigned long mem_start;
 	unsigned long mem_end;
 	void __iomem *base_addr;
 };
+
+static ssize_t id_show(struct device *dev, struct device_attribute *attr, char *buf)
+{
+        struct axil_regfile_local *lp = dev_get_drvdata(dev);
+        return sprintf(buf, "0x%08x\n", ioread32(lp->base_addr + REGF_ID));
+}
+static DEVICE_ATTR_RO(id);
 
 static irqreturn_t axil_regfile_irq(int irq, void *lp)
 {
@@ -144,7 +147,7 @@ static void axil_regfile_remove(struct platform_device *pdev)
 
 #ifdef CONFIG_OF
 static struct of_device_id axil_regfile_of_match[] = {
-	{ .compatible = "vendor,axil-regfile", },
+	{ .compatible = "xlnx,axil-regfile-1.0", },
 	{ /* end of list */ },
 };
 MODULE_DEVICE_TABLE(of, axil_regfile_of_match);
@@ -163,20 +166,15 @@ static struct platform_driver axil_regfile_driver = {
 	.remove		= axil_regfile_remove,
 };
 
-static int __init axil_regfile_init(void)
-{
-	printk("<1>Hello module world.\n");
-	printk("<1>Module parameters were (0x%08x) and \"%s\"\n", myint,
-	       mystr);
-
+static int __init axil_regfile_init(void) {
+	printk("<1>Hello axil-regfile.\n");
 	return platform_driver_register(&axil_regfile_driver);
 }
 
 
-static void __exit axil_regfile_exit(void)
-{
+static void __exit axil_regfile_exit(void) {
 	platform_driver_unregister(&axil_regfile_driver);
-	printk(KERN_ALERT "Goodbye module world.\n");
+	printk(KERN_ALERT "axil-regfile exit.\n");
 }
 
 module_init(axil_regfile_init);
