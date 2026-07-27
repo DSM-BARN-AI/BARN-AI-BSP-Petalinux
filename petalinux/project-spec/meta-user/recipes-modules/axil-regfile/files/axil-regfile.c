@@ -28,6 +28,7 @@
 #include <linux/of_device.h>
 #include <linux/of_platform.h>
 #include <linux/platform_device.h>
+#include <stdint.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR
@@ -42,12 +43,28 @@ MODULE_DESCRIPTION
 #define REGF_TPG_CFG 0x0C
 #define REGF_STATUS  0x10
 
-#define CRTL_EABLE_BIT 0
-	int irq;
-	unsigned long mem_start;
-	unsigned long mem_end;
-	void __iomem *base_addr;
+#define CRTL_ENABLE_BIT 0
+
+struct axil_regfile_local {
+        unsigned long mem_start;
+        unsigned long mem_end;
+        void __iomem *base_addr;
 };
+
+static ssize_t ctrl_store(struct device *dev, struct device_attribute *attr, char *buf, size_t count) {
+	uint32_t enable, mux;
+	struct axil_regfile_local *lp = dev_get_drvdata(dev);
+
+	if (sscanf(buf, "%d %d", &enable, &mux) != 2) {
+		return -EINVAL;
+	}
+
+	uint32_t ctrl = (enable & 0x1) | ((mux & 0x1) << 1);
+	iowrite32(ctrl, lp->base_addr + REFG_CTRL);
+
+	return count; 
+}
+static DEVICE_ATTR_RW(ctrl);
 
 static ssize_t id_show(struct device *dev, struct device_attribute *attr, char *buf)
 {
@@ -56,15 +73,8 @@ static ssize_t id_show(struct device *dev, struct device_attribute *attr, char *
 }
 static DEVICE_ATTR_RO(id);
 
-static irqreturn_t axil_regfile_irq(int irq, void *lp)
-{
-	printk("axil-regfile interrupt\n");
-	return IRQ_HANDLED;
-}
-
 static int axil_regfile_probe(struct platform_device *pdev)
 {
-	struct resource *r_irq; /* Interrupt resources */
 	struct resource *r_mem; /* IO mem resources */
 	struct device *dev = &pdev->dev;
 	struct axil_regfile_local *lp = NULL;
@@ -102,30 +112,7 @@ static int axil_regfile_probe(struct platform_device *pdev)
 		goto error2;
 	}
 
-	/* Get IRQ for the device */
-	r_irq = platform_get_resource(pdev, IORESOURCE_IRQ, 0);
-	if (!r_irq) {
-		dev_info(dev, "no IRQ found\n");
-		dev_info(dev, "axil-regfile at 0x%08x mapped to 0x%08x\n",
-			(unsigned int __force)lp->mem_start,
-			(unsigned int __force)lp->base_addr);
-		return 0;
-	}
-	lp->irq = r_irq->start;
-	rc = request_irq(lp->irq, &axil_regfile_irq, 0, DRIVER_NAME, lp);
-	if (rc) {
-		dev_err(dev, "testmodule: Could not allocate interrupt %d.\n",
-			lp->irq);
-		goto error3;
-	}
-
-	dev_info(dev,"axil-regfile at 0x%08x mapped to 0x%08x, irq=%d\n",
-		(unsigned int __force)lp->mem_start,
-		(unsigned int __force)lp->base_addr,
-		lp->irq);
 	return 0;
-error3:
-	free_irq(lp->irq, lp);
 error2:
 	release_mem_region(lp->mem_start, lp->mem_end - lp->mem_start + 1);
 error1:
@@ -138,7 +125,6 @@ static void axil_regfile_remove(struct platform_device *pdev)
 {
 	struct device *dev = &pdev->dev;
 	struct axil_regfile_local *lp = dev_get_drvdata(dev);
-	free_irq(lp->irq, lp);
 	iounmap(lp->base_addr);
 	release_mem_region(lp->mem_start, lp->mem_end - lp->mem_start + 1);
 	kfree(lp);
