@@ -3,6 +3,10 @@ config axi-gpio-drv
 	 bool "axi-gpio-drv"
 	 help
 	
+config axil-regfile  
+	 bool "axil-regfile"
+	 help
+	
 config gpio-demo  
 	 bool "gpio-demo"
 	 help

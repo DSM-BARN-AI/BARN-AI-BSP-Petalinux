@@ -1,14 +1,14 @@
-2026-07-27 10:40:26,783 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
-2026-07-27 10:40:26,783 - [INFO] Getting Platform info from HW file
-2026-07-27 10:40:26,783 - [DEBUG] Using the soc_family specified by user:zynq
-2026-07-27 10:40:26,803 - [DEBUG] Hardware Configuration:
-2026-07-27 10:40:26,803 - [DEBUG] MACHINE     = "None"
-2026-07-27 10:40:26,803 - [DEBUG] DEVICE_ID   = "7z020"
-2026-07-27 10:40:26,803 - [DEBUG] SOC_FAMILY  = "zynq"
-2026-07-27 10:40:26,803 - [DEBUG] SOC_VARIANT = ""
-2026-07-27 10:40:26,803 - [INFO] Silentconfig project
-2026-07-27 10:40:26,803 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
-2026-07-27 10:40:26,816 - [DEBUG] *
+2026-08-01 12:42:12,170 - [DEBUG] Using xsct from : /home/dsm/xilinx/petalinux/2025.2/components/xsct/bin/xsct
+2026-08-01 12:42:12,170 - [INFO] Getting Platform info from HW file
+2026-08-01 12:42:12,170 - [DEBUG] Using the soc_family specified by user:zynq
+2026-08-01 12:42:12,208 - [DEBUG] Hardware Configuration:
+2026-08-01 12:42:12,208 - [DEBUG] MACHINE     = "None"
+2026-08-01 12:42:12,208 - [DEBUG] DEVICE_ID   = "7z020"
+2026-08-01 12:42:12,208 - [DEBUG] SOC_FAMILY  = "zynq"
+2026-08-01 12:42:12,208 - [DEBUG] SOC_VARIANT = ""
+2026-08-01 12:42:12,208 - [INFO] Silentconfig project
+2026-08-01 12:42:12,208 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/configs/Kconfig
+2026-08-01 12:42:12,226 - [DEBUG] *
 * PetaLinux System Configuration
 *
 ZYNQ Configuration (SYSTEM_ZYNQ) [Y/?] y
@@ -244,9 +244,9 @@ user layer 0 (USER_LAYER_0) []
 #
 # configuration written to /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/config
 #
-2026-07-27 10:40:26,870 - [INFO] Silentconfig rootfs
-2026-07-27 10:40:26,870 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
-2026-07-27 10:40:26,888 - [DEBUG] *
+2026-08-01 12:42:12,315 - [INFO] Silentconfig rootfs
+2026-08-01 12:42:12,316 - [DEBUG] Running CMD: yes "" | env KCONFIG_CONFIG=/home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config conf /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfsconfigs/Kconfig
+2026-08-01 12:42:12,345 - [DEBUG] *
 * Configuration
 *
 *
@@ -3515,6 +3515,7 @@ choice[1-2]: *
 * user packages 
 *
 axi-gpio-drv (axi-gpio-drv) [Y/n/?] 
+axil-regfile (axil-regfile) [Y/n/?] 
 gpio-demo (gpio-demo) [N/y/?] 
 peekpoke (peekpoke) [N/y/?] 
 vdma-capture (vdma-capture) [Y/n/?] 
@@ -3528,7 +3529,7 @@ Add Users to Sudo users (ADD_USERS_TO_SUDOERS) [petalinux]
 #
 # configuration written to /home/dsm/work/BARN-AI-BSP-Petalinux/petalinux/project-spec/configs/rootfs_config
 #
-2026-07-27 10:40:26,896 - [INFO] Generating configuration files
-2026-07-27 10:40:26,897 - [DEBUG] No multilibs enabled.
-2026-07-27 10:40:26,898 - [DEBUG] No multilibs enabled.
-2026-07-27 10:40:26,913 - [DEBUG] Shutting down bitbake
+2026-08-01 12:42:12,360 - [INFO] Generating configuration files
+2026-08-01 12:42:12,362 - [DEBUG] No multilibs enabled.
+2026-08-01 12:42:12,362 - [DEBUG] No multilibs enabled.
+2026-08-01 12:42:12,393 - [DEBUG] Shutting down bitbake

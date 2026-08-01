@@ -28,7 +28,6 @@
 #include <linux/of_device.h>
 #include <linux/of_platform.h>
 #include <linux/platform_device.h>
-#include <stdint.h>
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR
