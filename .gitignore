@@ -15,6 +15,7 @@ xilinx/
 .cache/
 .hw/
 .ip_user_files/
+.Xil/
 .runs/
 .sim/
 .srcs/
